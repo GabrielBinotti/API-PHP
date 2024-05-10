@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /api
+
+RewriteCond %{THE_REQUEST} /server/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+RewriteRule ^(.*)$ server/index.php?$1 [L,QSA]
